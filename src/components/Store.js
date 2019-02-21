@@ -13,92 +13,119 @@ import Image7 from './../assets/img7.jpeg';
 import Image8 from './../assets/img8.jpeg';
 import Image9 from './../assets/img9.jpeg';
 
-const Store = () => {
+class Store extends React.Component {
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const result = window.open();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cart: []
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
-  return(
-    <React.Fragment>
-      <Title title='Store' />
-      <div style={containerStyle} className={`Container`}>
-        <div className={`row`}>
+  handleClick = (event) => {
+    event.preventDefault();
+    alert('you clicked me');
+  }
 
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image1} style={imageStyle} onClick={handleClick} />
-            <div>Blue Sweater</div>
-            <div>Price: 3.99</div>
-            <button>Add</button>
+  addToCart = (event) => {
+    const newItem = event.target.name;
+
+    this.setState(state => {
+      // Add new item to the cart
+      const cart = state.cart.concat(newItem);
+
+      console.log(cart);
+
+      return { cart };
+    });
+  }
+
+  render() {
+    return(
+      <React.Fragment>
+        <Title title='Store' />
+        <div style={containerStyle} className={`Container`}>
+          <div className={`row`}>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image1} alt='blue_sweater' style={imageStyle} onClick={this.handleClick} />
+              <div>Blue Sweater</div>
+              <div>Price: 3.99</div>
+              <button name='blue_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image2} alt='rose_green' style={imageStyle} />
+              <div>Rose Green</div>
+              <div>Price: 4.99</div>
+              <button name='rose_green' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image3} alt='hogwarts_sweater' style={imageStyle} />
+              <div>Hogwarts Sweater</div>
+              <div>Price: 5.99</div>
+              <button name='hogwarts_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
           </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image2} style={imageStyle} />
-            <div>Rose Green</div>
-            <div>Price: 4.99</div>
-            <button>Add</button>
+  
+          <div className={`row`}>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image4} alt='brown_sweater' style={imageStyle} />
+              <div>Brown Sweater</div>
+              <div>Price: 3.99</div>
+              <button name='brown_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image5} alt='black_addidas_sweater' style={imageStyle} />
+              <div>Black Addidas Sweater</div>
+              <div>Price: 4.99</div>
+              <button name='black_addidas_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image6} alt='cools_club_sweater' style={imageStyle} />
+              <div>Cools Club Sweater</div>
+              <div>Price: 5.99</div>
+              <button name='cools_club_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
           </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image3} style={imageStyle} />
-            <div>Hogwarts Sweater</div>
-            <div>Price: 5.99</div>
-            <button>Add</button>
+          <div className={`row`}>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image7} alt='checker_diamond_sweater' style={imageStyle} />
+              <div>Checker Diamond Sweater</div>
+              <div>Price: 3.99</div>
+              <button name='checker_diamond_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image8} alt='amazon_sweater' style={imageStyle} />
+              <div>Amazon Sweater</div>
+              <div>Price: 4.99</div>
+              <button name='amazon_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
+            <div style={textStyle} className={`col-sm-4`}>
+              <img src={Image9} alt='green_rose_sweater' style={imageStyle} />
+              <div>Green Rose Sweater</div>
+              <div>Price: 5.99</div>
+              <button name='green_rose_sweater' onClick={this.addToCart}>Add</button>
+            </div>
+  
           </div>
-
         </div>
-        <div className={`row`}>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image4} style={imageStyle} />
-            <div>Brown Sweater</div>
-            <div>Price: 3.99</div>
-            <button>Add</button>
-          </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image5} style={imageStyle} />
-            <div>Black Addidas Sweater</div>
-            <div>Price: 4.99</div>
-            <button>Add</button>
-          </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image6} style={imageStyle} />
-            <div>Cools Club Sweater</div>
-            <div>Price: 5.99</div>
-            <button>Add</button>
-          </div>
-
-        </div>
-        <div className={`row`}>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image7} style={imageStyle} />
-            <div>Checker Diamond Sweater</div>
-            <div>Price: 3.99</div>
-            <button>Add</button>
-          </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image8} style={imageStyle} />
-            <div>Amazon Sweater</div>
-            <div>Price: 4.99</div>
-            <button>Add</button>
-          </div>
-
-          <div style={textStyle} className={`col-sm-4`}>
-            <img src={Image9} style={imageStyle} />
-            <div>Green Rose Sweater</div>
-            <div>Price: 5.99</div>
-            <button>Add</button>
-          </div>
-
-        </div>
-      </div>
-    </React.Fragment>
-  );
+      </React.Fragment>
+    );
+  }
 }
 
 const textStyle = {
@@ -112,7 +139,8 @@ const containerStyle = {
 const imageStyle = {
   width: '70%',
   height: '350px',
-  borderRadius: '25px'
+  borderRadius: '25px',
+  padding: '10px'
 }
 
 export default Store;
