@@ -18,30 +18,19 @@ class Store extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      cart: []
-    };
-
     this.handleClick = this.handleClick.bind(this);
     this.addToCart = this.addToCart.bind(this);
   }
 
   handleClick = (event) => {
     event.preventDefault();
-    alert('you clicked me');
   }
 
   addToCart = (event) => {
     const newItem = event.target.name;
-
-    this.setState(state => {
-      // Add new item to the cart
-      const cart = state.cart.concat(newItem);
-
-      console.log(cart);
-
-      return { cart };
-    });
+    let cart = this.props.cart;
+    cart.push(newItem);
+    console.log(cart);
   }
 
   render() {
