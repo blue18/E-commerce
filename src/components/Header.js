@@ -6,7 +6,7 @@ const Header = () => {
     <header style={headerStyle}>
       <nav>
         <Link style={linkStyle} to='/'> Home </Link>
-        <Link style={linkStyle} to='/store'> Store </Link>
+        <Link style={linkStyle} to='/shop'> Shop </Link>
         <Link style={linkStyle} to='/about'> About </Link>
         <Link style={linkStyle} to='/cart'> Cart </Link>
       </nav>

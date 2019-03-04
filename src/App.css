@@ -6,6 +6,10 @@ dark green: #519E8A
 medium green: #7EB09B
 light green: #A3C4BC
 */
+.App {
+  width: 90%;
+  margin: auto;
+}
 
 .wrapper {
   height: 100vh;
@@ -24,7 +28,7 @@ light green: #A3C4BC
   padding: 20px 40px;
   border-radius: 10px;
   box-shadow: 0px 10px 50px #555;
-  background-color: #666666;
+  background-color: white;
 }
 
 form {
@@ -49,7 +53,7 @@ label {
   font-weight: lighter;
 }
 
-input {
+input, textarea {
   padding: 10px 10px;
   border-radius: 5px;
   outline: none;
