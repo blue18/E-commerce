@@ -13,13 +13,92 @@ import Image7 from './../assets/img7.jpeg';
 import Image8 from './../assets/img8.jpeg';
 import Image9 from './../assets/img9.jpeg';
 
+import { connect } from 'react-redux';
+import { addToCart } from '../actions/shoppingCartActions';
+
+import Product from './Product';
+
+/*
+  add products here for testing purposes 
+*/
+
+const product_one = {
+  id: 1,
+  name: "blue_sweater",
+  price: "3.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_two = {
+  id: 2,
+  name: "Rose Green",
+  price: "4.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_three = {
+  id: 3,
+  name: "Hogwarts Sweater",
+  price: "5.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_four = {
+  id: 4,
+  name: "Brown Diamonds",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_five = {
+  id: 5,
+  name: "Black Addidas Sweater",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_six = {
+  id: 6,
+  name: "Cools Club Sweater",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_seven = {
+  id: 7,
+  name: "Checker Diamond Sweater",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_eight = {
+  id: 8,
+  name: "Amazon Sweater",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
+const product_nine = {
+  id: 9,
+  name: "Green Rose Sweater",
+  price: "2.99",
+  description: "asdf jkl;",
+  quantity: 1
+};
+
 class Shop extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
-    this.addToCart = this.addToCart.bind(this);
   }
 
   handleClick = (event) => {
@@ -27,10 +106,8 @@ class Shop extends React.Component {
   }
 
   addToCart = (event) => {
-    const newItem = event.target.name;
-    let cart = this.props.cart;
-    cart.push(newItem);
-    console.log(cart);
+    event.preventDefault();
+    this.props.addToCart(event);
   }
 
   render() {
@@ -41,24 +118,18 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image1} alt='blue_sweater' style={imageStyle} onClick={this.handleClick} />
-              <div>Blue Sweater</div>
-              <div>Price: 3.99</div>
-              <button name='blue_sweater' onClick={this.addToCart}>Add</button>
+              <img src={Image1} alt='rose_green' style={imageStyle} />
+              <Product {...product_one} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image2} alt='rose_green' style={imageStyle} />
-              <div>Rose Green</div>
-              <div>Price: 4.99</div>
-              <button name='rose_green' onClick={this.addToCart}>Add</button>
+              <Product {...product_two} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image3} alt='hogwarts_sweater' style={imageStyle} />
-              <div>Hogwarts Sweater</div>
-              <div>Price: 5.99</div>
-              <button name='hogwarts_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_three} addToCart={this.addToCart} /> 
             </div>
   
           </div>
@@ -67,23 +138,17 @@ class Shop extends React.Component {
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image4} alt='brown_sweater' style={imageStyle} />
-              <div>Brown Sweater</div>
-              <div>Price: 3.99</div>
-              <button name='brown_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_four} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image5} alt='black_addidas_sweater' style={imageStyle} />
-              <div>Black Addidas Sweater</div>
-              <div>Price: 4.99</div>
-              <button name='black_addidas_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_five} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image6} alt='cools_club_sweater' style={imageStyle} />
-              <div>Cools Club Sweater</div>
-              <div>Price: 5.99</div>
-              <button name='cools_club_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_six} addToCart={this.addToCart} />
             </div>
   
           </div>
@@ -91,26 +156,23 @@ class Shop extends React.Component {
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image7} alt='checker_diamond_sweater' style={imageStyle} />
-              <div>Checker Diamond Sweater</div>
-              <div>Price: 3.99</div>
-              <button name='checker_diamond_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_seven} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image8} alt='amazon_sweater' style={imageStyle} />
-              <div>Amazon Sweater</div>
-              <div>Price: 4.99</div>
-              <button name='amazon_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_eight} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
               <img src={Image9} alt='green_rose_sweater' style={imageStyle} />
-              <div>Green Rose Sweater</div>
-              <div>Price: 5.99</div>
-              <button name='green_rose_sweater' onClick={this.addToCart}>Add</button>
+              <Product {...product_nine} addToCart={this.addToCart} />
             </div>
   
           </div>
+        </div>
+
+        <div>
         </div>
       </React.Fragment>
     );
@@ -133,4 +195,8 @@ const imageStyle = {
   padding: '10px'
 }
 
-export default Shop;
+const mapStateToProps = state => ({
+  shoppingCart: state.shoppingCart.itemID
+});
+
+export default connect(mapStateToProps, { addToCart })(Shop);

@@ -8,12 +8,18 @@ import Cart from './Cart';
 const Main = (props) => {
 
   const cart = props.cart;
+  const giveDiscount = props.giveDiscount;
+  const message = props.message;
 
   return(
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/shop' render={(props) => <Shop {...props} cart={cart} />} />
-      <Route path='/about' component={About}/>
+      <Route path='/about' 
+             render={(props) => <About {...props} 
+             giveDiscount={giveDiscount} 
+             message={message} cart={cart} />} 
+      />
       <Route path='/cart' render={(props) => <Cart {...props} cart={cart} />} />
     </Switch>
   );

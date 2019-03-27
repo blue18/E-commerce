@@ -10,21 +10,33 @@ import { withRouter } from 'react-router-dom'
 
 
 class App extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
       cart: ['clothes'],
-      posts: []
+      message: 'This message.'
     };
-
   }
+
+  giveDiscountHandler = () => {
+    if(this.props.promoCode === 'DISCOUNT') {
+      this.setState(
+        {
+          message: "Hello world..."
+        }
+      );
+    }
+  };
 
   render() {
     return (
       <div>
         <Header />
-        <Main cart={this.state.cart} />
+        <Main cart={this.state.cart} 
+              giveDiscount={() => this.giveDiscountHandler()}
+              message={this.state.message} />
         <Footer />
       </div>
     );
@@ -32,7 +44,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  promoCode: state.promoCode.value
-})
+  promoCode: state.promoCode.value,
+});
 
 export default withRouter(connect(mapStateToProps, { handleChange })(App));
