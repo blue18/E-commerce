@@ -16,14 +16,12 @@ const Header = () => {
 
 const headerStyle = {
   textAlign: 'center',
-  fontWeight: 'lighter',
   background: 'black',
   padding: '10px'
 }
 
 const linkStyle = {
   textDecoration: 'none',
-  fontWeight: 'lighter',
   color: 'red'
 
 }

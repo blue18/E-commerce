@@ -1,5 +1,6 @@
 import { ADD_ITEM } from '../actions/types';
 import { SHOW_ITEM } from '../actions/types';
+import { DELETE_ITEM } from '../actions/types';
 
 const initialState = {
   listOfProducts: []
@@ -38,6 +39,13 @@ export default function (state = initialState, action) {
       }
     case SHOW_ITEM:
       console.log('showing item...');
+      return state;
+    case DELETE_ITEM:
+        // get product id 
+        const item = action.payload;
+        console.log(`delete item: ${item}`);
+        
+
       return state;
     default:
       return state;

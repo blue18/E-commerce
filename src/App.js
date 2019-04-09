@@ -43,6 +43,7 @@ class App extends Component {
   }
 }
 
+
 const mapStateToProps = state => ({
   promoCode: state.promoCode.value,
 });
