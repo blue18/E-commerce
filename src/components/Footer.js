@@ -7,8 +7,9 @@ const Footer = () => {
       <footer style={footerStyle}>
       <div className={`container-fluid`}>
         <Row>
-          <Col md={6}>Copyright</Col>
-          <Col md={6}>2019</Col>
+          <Col md={4}></Col>
+          <Col md={4}>Copyright © 2019</Col>
+          <Col md={4}></Col>
         </Row>
       </div>
       </footer>
@@ -19,7 +20,8 @@ const Footer = () => {
 const footerStyle = {
   textAlign: 'center',
   padding: '10px',
-  color: 'black'
+  backgroundColor: 'black',
+  color: 'red'
 }
 
 export default Footer;

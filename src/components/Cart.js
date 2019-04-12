@@ -5,13 +5,9 @@ import { deleteFromCart } from '../actions/shoppingCartActions';
 
 class Cart extends React.Component {
 
-    constructor(props) {
-      super(props);
-    }
-
     deleteFromCart = (event) => {
       event.preventDefault();
-      console.log("line 14");
+      this.props.deleteFromCart(event);
     }
 
     render() {
@@ -19,8 +15,9 @@ class Cart extends React.Component {
       // Get list of products
       const products = this.props.products;
       let totalPrice = 0;
-      
-      products.map(product => {
+
+      // Calculate the total price 
+      products.forEach(product => {
         totalPrice = parseFloat(product.price) + totalPrice;
       });
 
@@ -29,7 +26,7 @@ class Cart extends React.Component {
         return (
           <div key={parseInt(product.id)} className={`row`}>
             <div className={`col`}> 
-              <img src={require("../assets/50995950_040_b.jpeg")} width="200" height="100" /> 
+              <img src={product.image} alt="pic1" width="200" height="100" /> 
             </div>
             <div className={`col`}> {product.name} </div>
             <div className={`col`}> Description... </div>
@@ -42,7 +39,7 @@ class Cart extends React.Component {
                 <option>4</option>
               </select>
             </div>
-            <div className={`col`}> <button onClick={this.deleteFromCart}>Remove</button> </div>
+            <div className={`col`}> <button {...product} onClick={this.deleteFromCart}>Remove</button> </div>
           </div>
         );
       });
@@ -53,7 +50,7 @@ class Cart extends React.Component {
           <div className={`container-fluid`} style={emptyCart}>
             Cart is empty
             <div>
-              <img src={emptyCartImage} />
+              <img alt="empty_cart" />
             </div>
           </div>
         );

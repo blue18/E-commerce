@@ -1,18 +1,6 @@
 import React from 'react';
 import Title from './Title';
 
-import Image1 from './../assets/50995950_040_b.jpeg';
-import Image2 from './../assets/48582498_031_b.jpeg';
-import Image3 from './../assets/48619951_061_b.jpeg';
-
-import Image4 from './../assets/img4.jpeg';
-import Image5 from './../assets/img5.jpeg';
-import Image6 from './../assets/img6.jpeg';
-
-import Image7 from './../assets/img7.jpeg';
-import Image8 from './../assets/img8.jpeg';
-import Image9 from './../assets/img9.jpeg';
-
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/shoppingCartActions';
 
@@ -27,7 +15,8 @@ const product_one = {
   name: "blue_sweater",
   price: "3.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/50995950_040_b.jpeg')
 };
 
 const product_two = {
@@ -35,7 +24,8 @@ const product_two = {
   name: "Rose Green",
   price: "4.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/48582498_031_b.jpeg')
 };
 
 const product_three = {
@@ -43,7 +33,9 @@ const product_three = {
   name: "Hogwarts Sweater",
   price: "5.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/48619951_061_b.jpeg')
+
 };
 
 const product_four = {
@@ -51,7 +43,9 @@ const product_four = {
   name: "Brown Diamonds",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img4.jpeg')
+
 };
 
 const product_five = {
@@ -59,7 +53,9 @@ const product_five = {
   name: "Black Addidas Sweater",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img5.jpeg')
+
 };
 
 const product_six = {
@@ -67,7 +63,9 @@ const product_six = {
   name: "Cools Club Sweater",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img6.jpeg')
+
 };
 
 const product_seven = {
@@ -75,7 +73,9 @@ const product_seven = {
   name: "Checker Diamond Sweater",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img7.jpeg')
+
 };
 
 const product_eight = {
@@ -83,7 +83,9 @@ const product_eight = {
   name: "Amazon Sweater",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img8.jpeg')
+
 };
 
 const product_nine = {
@@ -91,7 +93,9 @@ const product_nine = {
   name: "Green Rose Sweater",
   price: "2.99",
   description: "asdf jkl;",
-  quantity: 1
+  quantity: 1,
+  image: require('./../assets/img9.jpeg')
+
 };
 
 class Shop extends React.Component {
@@ -107,6 +111,7 @@ class Shop extends React.Component {
 
   addToCart = (event) => {
     event.preventDefault();
+    console.log(event.target);
     this.props.addToCart(event);
   }
 
@@ -118,17 +123,17 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image1} alt='rose_green' style={imageStyle} />
+              <img src={product_one.image} alt='rose_green' style={imageStyle} />
               <Product {...product_one} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image2} alt='rose_green' style={imageStyle} />
+              <img src={product_two.image} alt='rose_green' style={imageStyle} />
               <Product {...product_two} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image3} alt='hogwarts_sweater' style={imageStyle} />
+              <img src={product_three.image} alt='hogwarts_sweater' style={imageStyle} />
               <Product {...product_three} addToCart={this.addToCart} /> 
             </div>
   
@@ -137,17 +142,17 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image4} alt='brown_sweater' style={imageStyle} />
+              <img src={product_four.image} alt='brown_sweater' style={imageStyle} />
               <Product {...product_four} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image5} alt='black_addidas_sweater' style={imageStyle} />
+              <img src={product_five.image} alt='black_addidas_sweater' style={imageStyle} />
               <Product {...product_five} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image6} alt='cools_club_sweater' style={imageStyle} />
+              <img src={product_six.image} alt='cools_club_sweater' style={imageStyle} />
               <Product {...product_six} addToCart={this.addToCart} />
             </div>
   
@@ -155,17 +160,17 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image7} alt='checker_diamond_sweater' style={imageStyle} />
+              <img src={product_seven.image} alt='checker_diamond_sweater' style={imageStyle} />
               <Product {...product_seven} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image8} alt='amazon_sweater' style={imageStyle} />
+              <img src={product_eight.image} alt='amazon_sweater' style={imageStyle} />
               <Product {...product_eight} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={Image9} alt='green_rose_sweater' style={imageStyle} />
+              <img src={product_nine.image} alt='green_rose_sweater' style={imageStyle} />
               <Product {...product_nine} addToCart={this.addToCart} />
             </div>
   

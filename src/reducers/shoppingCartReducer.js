@@ -17,7 +17,8 @@ function extractProduct(product) {
       name: attributes.name.value,
       price: attributes.price.value,
       description: attributes.description.value,
-      quantity: attributes.quantity.value
+      quantity: attributes.quantity.value,
+      image: attributes.image.value
     }
 
     return Product;
@@ -25,6 +26,16 @@ function extractProduct(product) {
   } else {
     return null;
   }
+}
+
+function findWithAttr(array, attr, value) {
+  for(let i = 0; i < array.length; i += 1) {
+    if(array[i][attr] === value) {
+      return i;
+    }
+  }
+
+  return -1;
 }
 
 export default function (state = initialState, action) {
@@ -41,12 +52,19 @@ export default function (state = initialState, action) {
       console.log('showing item...');
       return state;
     case DELETE_ITEM:
-        // get product id 
-        const item = action.payload;
-        console.log(`delete item: ${item}`);
-        
 
-      return state;
+      // Get id of product to be removed
+      const productID = action.payload.attributes.id.value;
+
+      // Get all current products in the shopping cart 
+      let currentProducts = state.listOfProducts; 
+
+      // get index from current products in the shopping cart  
+      const index = findWithAttr(currentProducts, "id", productID);
+
+      return {
+        listOfProducts: [...currentProducts.slice(0, index), ...currentProducts.slice(index + 1)]
+      };
     default:
       return state;
   }
