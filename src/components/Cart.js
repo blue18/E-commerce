@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteFromCart } from '../actions/shoppingCartActions';
+import { Table } from 'reactstrap';
 
 class Cart extends React.Component {
 
@@ -23,23 +24,16 @@ class Cart extends React.Component {
       // Get name and price of products from list 
       const aProduct = products.map((product) => {
         return (
-          <div key={parseInt(product.id)} className={`row`}>
-            <div className={`col`}> 
+          <tr key={parseInt(product.id)} >
+            <td > 
               <img src={product.image} alt="pic1" width="200" height="100" /> 
-            </div>
-            <div className={`col`}> {product.name} </div>
-            <div className={`col`}> Description... </div>
-            <div className={`col`}> ${product.price} </div>
-            <div className={`col`}> 
-              <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div className={`col`}> <button {...product} onClick={this.deleteFromCart}>Remove</button> </div>
-          </div>
+            </td>
+            <td > {product.name} </td>
+            <td > Description... </td>
+            <td > ${product.price} </td>
+            <td > {product.quantity} </td>
+            <td > <button {...product} onClick={this.deleteFromCart}>Remove</button> </td>
+          </tr>
         );
       });
 
@@ -61,7 +55,24 @@ class Cart extends React.Component {
               <div style={cartheader}>
                 <a href="https://www.w3schools.com/html/">Continue Shopping</a>
               </div>
-              {aProduct}
+              <div>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Item</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {aProduct}
+                  </tbody>
+                </Table>
+              </div>
+
               <div className={`row`}>
                 <div className={`col-12`}>
                   <hr />
