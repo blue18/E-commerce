@@ -3,6 +3,8 @@ import Title from './Title';
 
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/shoppingCartActions';
+import { Link } from 'react-router-dom';
+
 
 import Product from './Product';
 
@@ -111,7 +113,6 @@ class Shop extends React.Component {
 
   addToCart = (event) => {
     event.preventDefault();
-    console.log(event.target);
     this.props.addToCart(event);
   }
 
@@ -123,17 +124,23 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_one.image} alt='rose_green' style={imageStyle} />
+              <Link to='/productpage' {...product_one} >
+                <img src={product_one.image} alt='rose_green' style={imageStyle} />
+              </Link>
               <Product {...product_one} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_two.image} alt='rose_green' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_two.image} alt='rose_green' style={imageStyle} />
+              </Link>
               <Product {...product_two} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_three.image} alt='hogwarts_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_three.image} alt='hogwarts_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_three} addToCart={this.addToCart} /> 
             </div>
   
@@ -142,17 +149,23 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_four.image} alt='brown_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_four.image} alt='brown_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_four} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_five.image} alt='black_addidas_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_five.image} alt='black_addidas_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_five} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_six.image} alt='cools_club_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_six.image} alt='cools_club_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_six} addToCart={this.addToCart} />
             </div>
   
@@ -160,17 +173,23 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_seven.image} alt='checker_diamond_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_seven.image} alt='checker_diamond_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_seven} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_eight.image} alt='amazon_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_eight.image} alt='amazon_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_eight} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <img src={product_nine.image} alt='green_rose_sweater' style={imageStyle} />
+              <Link to='./productpage' >
+                <img src={product_nine.image} alt='green_rose_sweater' style={imageStyle} />
+              </Link>
               <Product {...product_nine} addToCart={this.addToCart} />
             </div>
   

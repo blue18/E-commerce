@@ -4,6 +4,7 @@ import Home from './Home';
 import Shop from './Shop';
 import About from './About';
 import Cart from './Cart';
+import ProductPage from './productPage';
 
 const Main = (props) => {
 
@@ -21,6 +22,7 @@ const Main = (props) => {
              message={message} cart={cart} />} 
       />
       <Route path='/cart' render={(props) => <Cart {...props} cart={cart} />} />
+      <Route path='/productpage' render={(props) => <ProductPage {...props} />} />
     </Switch>
   );
 }

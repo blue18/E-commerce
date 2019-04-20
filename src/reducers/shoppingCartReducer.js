@@ -1,6 +1,7 @@
 import { ADD_ITEM } from '../actions/types';
 import { SHOW_ITEM } from '../actions/types';
 import { DELETE_ITEM } from '../actions/types';
+import { all } from 'q';
 
 const initialState = {
   listOfProducts: []
@@ -17,7 +18,7 @@ function extractProduct(product) {
       name: attributes.name.value,
       price: attributes.price.value,
       description: attributes.description.value,
-      quantity: attributes.quantity.value,
+      quantity: parseInt(attributes.quantity.value),
       image: attributes.image.value
     }
 
@@ -42,12 +43,38 @@ export default function (state = initialState, action) {
   switch(action.type) {
     case ADD_ITEM: 
 
+      // new product to be added
       const newProduct = extractProduct(action.payload);
+
+      // Get all current products in the shopping cart
+      const allProducts = state.listOfProducts;
+
+      // check if newProduct is already inside of listOfProducts 
+      const isProductFound = allProducts.find(product => product.id === newProduct.id);
       
-      return {
-        ...state, 
-        listOfProducts: [...state.listOfProducts, newProduct]
+      // if product was found
+      if(isProductFound !== undefined) {
+        
+        // search for that product and increment the quantity
+        allProducts.forEach(product => {
+          if(product.id === newProduct.id) {
+            product.quantity++;
+          }
+        });
+        
+
+        return {
+          listOfProducts: allProducts
+        };
+
+      } else {
+
+        return {
+          ...state, 
+          listOfProducts: [...state.listOfProducts, newProduct]
+        };
       }
+
     case SHOW_ITEM:
       console.log('showing item...');
       return state;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import emptyCartImage from '../assets/empty_cart.jpg';
 import { deleteFromCart } from '../actions/shoppingCartActions';
 
 class Cart extends React.Component {
