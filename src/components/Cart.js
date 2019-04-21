@@ -24,15 +24,15 @@ class Cart extends React.Component {
       // Get name and price of products from list 
       const aProduct = products.map((product) => {
         return (
-          <tr key={parseInt(product.id)} >
-            <td > 
+          <tr key={parseInt(product.id)}>
+            <td> 
               <img src={product.image} alt="pic1" width="200" height="100" /> 
             </td>
-            <td > {product.name} </td>
-            <td > Description... </td>
-            <td > ${product.price} </td>
-            <td > {product.quantity} </td>
-            <td > <button {...product} onClick={this.deleteFromCart}>Remove</button> </td>
+            <td> {product.name} </td>
+            <td> Description... </td>
+            <td> ${product.price} </td>
+            <td> {product.quantity} </td>
+            <td> <button {...product} onClick={this.deleteFromCart}>Remove</button> </td>
           </tr>
         );
       });

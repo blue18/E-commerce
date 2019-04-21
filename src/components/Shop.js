@@ -124,21 +124,36 @@ class Shop extends React.Component {
           <div className={`row`}>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <Link to='/productpage' {...product_one} >
+              <Link to={{
+                pathname: "./productpage",
+                state: {
+                  product: {...product_one}
+                }
+              }} >
                 <img src={product_one.image} alt='rose_green' style={imageStyle} />
               </Link>
               <Product {...product_one} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
+              <Link to={{
+                pathname: "./productpage",
+                state: {
+                  product: {...product_two}
+                }
+              }} >
                 <img src={product_two.image} alt='rose_green' style={imageStyle} />
               </Link>
               <Product {...product_two} addToCart={this.addToCart} />
             </div>
   
             <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
+              <Link to={{
+                pathname: "./productpage",
+                state: {
+                  product: {...product_three}
+                }
+              }} >
                 <img src={product_three.image} alt='hogwarts_sweater' style={imageStyle} />
               </Link>
               <Product {...product_three} addToCart={this.addToCart} /> 
@@ -195,7 +210,6 @@ class Shop extends React.Component {
   
           </div>
         </div>
-
         <div>
         </div>
       </React.Fragment>

@@ -1,7 +1,6 @@
 import { ADD_ITEM } from '../actions/types';
 import { SHOW_ITEM } from '../actions/types';
 import { DELETE_ITEM } from '../actions/types';
-import { all } from 'q';
 
 const initialState = {
   listOfProducts: []
