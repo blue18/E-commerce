@@ -1,8 +1,8 @@
 import React from 'react';
 import Title from './Title';
-import { Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
-const productPage = (props) => {
+const ProductPage = (props) => {
 
   let { name } = props.location.state.product;
   let { price } = props.location.state.product;
@@ -14,14 +14,24 @@ const productPage = (props) => {
     <div>
       <Title title={name} /> 
       <Container>
-        <div>{price}</div>
-        <div>{description}</div>
-        <div>{quantity}</div>
-        <div><img src={image} /></div>
+        <Row style={textStyle}>
+          <Col sm="3"></Col>
+          <Col sm="6">
+            <div><img src={image} alt={name}/></div>
+            <div>${price}</div>
+            <div>{description}</div>
+            <div>{quantity}</div>
+          </Col>
+          <Col sm="3"></Col>
+        </Row>
       </Container>
-
     </div>
   );
 }
 
-export default productPage
+const textStyle = {
+  textAlign: 'center'
+}
+
+
+export default ProductPage

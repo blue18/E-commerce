@@ -4,9 +4,9 @@ import Home from './Home';
 import Shop from './Shop';
 import About from './About';
 import Cart from './Cart';
-import ProductPage from './productPage';
+import ProductPage from './ProductPage';
 
-const Main = (props) => {
+const Router = (props) => {
 
   const cart = props.cart;
   const giveDiscount = props.giveDiscount;
@@ -27,4 +27,4 @@ const Main = (props) => {
   );
 }
 
-export default Main;
+export default Router;

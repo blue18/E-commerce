@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Main from './components/Main';
+import Router from './components/Router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Main cart={this.state.cart} 
+        <Router cart={this.state.cart} 
               giveDiscount={() => this.giveDiscountHandler()}
               message={this.state.message} />
         <Footer />

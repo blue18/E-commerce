@@ -1,12 +1,10 @@
 import React from 'react';
 import Title from './Title';
-
+import Comproduct from './Comproduct';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/shoppingCartActions';
-import { Link } from 'react-router-dom';
+import { Container, Col, Row } from 'reactstrap';
 
-
-import Product from './Product';
 
 /*
   add products here for testing purposes 
@@ -120,98 +118,58 @@ class Shop extends React.Component {
     return(
       <React.Fragment>
         <Title title='Shop' />
-        <div style={containerStyle} className={`container-fluid`}>
-          <div className={`row`}>
+        <Container style={containerStyle} fluid>
+
+          <Row>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_one} />
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to={{
-                pathname: "./productpage",
-                state: {
-                  product: {...product_one}
-                }
-              }} >
-                <img src={product_one.image} alt='rose_green' style={imageStyle} />
-              </Link>
-              <Product {...product_one} addToCart={this.addToCart} />
-            </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_two}/>
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to={{
-                pathname: "./productpage",
-                state: {
-                  product: {...product_two}
-                }
-              }} >
-                <img src={product_two.image} alt='rose_green' style={imageStyle} />
-              </Link>
-              <Product {...product_two} addToCart={this.addToCart} />
-            </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_three} />
+            </Col>
+
+          </Row>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to={{
-                pathname: "./productpage",
-                state: {
-                  product: {...product_three}
-                }
-              }} >
-                <img src={product_three.image} alt='hogwarts_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_three} addToCart={this.addToCart} /> 
-            </div>
+          <Row>
   
-          </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_four} />
+            </Col>
   
-          <div className={`row`}>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_five} />
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_four.image} alt='brown_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_four} addToCart={this.addToCart} />
-            </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_six} />
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_five.image} alt='black_addidas_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_five} addToCart={this.addToCart} />
-            </div>
+          </Row>
+
+          <Row>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_six.image} alt='cools_club_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_six} addToCart={this.addToCart} />
-            </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_seven} />
+
+            </Col>
   
-          </div>
-          <div className={`row`}>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_eight} />
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_seven.image} alt='checker_diamond_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_seven} addToCart={this.addToCart} />
-            </div>
+            <Col xs="6" sm="4" style={textStyle}>
+              <Comproduct {...product_nine}  />
+            </Col>
   
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_eight.image} alt='amazon_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_eight} addToCart={this.addToCart} />
-            </div>
-  
-            <div style={textStyle} className={`col-sm-4`}>
-              <Link to='./productpage' >
-                <img src={product_nine.image} alt='green_rose_sweater' style={imageStyle} />
-              </Link>
-              <Product {...product_nine} addToCart={this.addToCart} />
-            </div>
-  
-          </div>
-        </div>
-        <div>
-        </div>
+          </Row>
+
+        </Container>
+
       </React.Fragment>
     );
   }
@@ -222,15 +180,7 @@ const textStyle = {
 }
 
 const containerStyle = {
-  background: '#bc0505',
-  padding: '15px'
-}
-
-const imageStyle = {
-  width: '70%',
-  height: '350px',
-  borderRadius: '25px',
-  padding: '10px'
+  background: '#bc0505'
 }
 
 const mapStateToProps = state => ({
