@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import Comproduct from './Comproduct';
-import { Container, Col, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 
 
 /*
