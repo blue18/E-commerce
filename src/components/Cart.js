@@ -42,9 +42,6 @@ class Cart extends React.Component {
         return(
           <div className={`container-fluid`} style={emptyCart}>
             Cart is empty
-            <div>
-              <img alt="empty_cart" />
-            </div>
           </div>
         );
       } else {

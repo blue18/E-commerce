@@ -1,37 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from './Title';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
+import { connect } from 'react-redux';
+import { addToCart } from '../actions/shoppingCartActions';
 
-const ProductPage = (props) => {
+class ProductPage extends Component {
 
-  let { name } = props.location.state.product;
-  let { price } = props.location.state.product;
-  let { description } = props.location.state.product;
-  let { quantity } = props.location.state.product;
-  let { image } = props.location.state.product;
+  constructor(props) {
+    super(props);
 
-  return(
-    <div>
-      <Title title={name} /> 
-      <Container>
-        <Row style={textStyle}>
-          <Col sm="3"></Col>
-          <Col sm="6">
-            <div><img src={image} alt={name}/></div>
-            <div>${price}</div>
-            <div>{description}</div>
-            <div>{quantity}</div>
-          </Col>
-          <Col sm="3"></Col>
-        </Row>
-      </Container>
-    </div>
-  );
+    this.showPopUp = this.showPopUp.bind(this);
+  }
+
+  showPopUp() {
+    console.log("line 16");
+  }
+
+  addToCart = (event) => {
+    event.preventDefault();
+    this.props.addToCart(event);
+  }
+
+  render() {
+    let product = this.props.location.state.product;
+
+    return(
+      <div>
+        <Title title={product.name} /> 
+        <Container>
+          <Row style={textStyle}>
+            <Col sm="3"></Col>
+            <Col sm="6">
+              <div><img src={product.image} alt={product.name}/></div>
+              <div>${product.price}</div>
+              <div>{product.description}</div>
+              <div>{product.quantity}</div>
+              <Button color="danger" size="lg" {...product} onClick={this.addToCart} block>Add to Cart</Button>
+            </Col>
+            <Col sm="3"></Col>
+          </Row>
+          <Row>
+            <Col>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
+}
+const popup = {
+  background: "red",
+  textAlign: "center",
+  padding: "20px",
+  position: "fixed"
 }
 
 const textStyle = {
-  textAlign: 'center'
+  textAlign: "center"
 }
 
+const mapStateToProps = state => ({
+  shoppingCart: state.shoppingCart.itemID
+});
 
-export default ProductPage
+
+export default connect(mapStateToProps, { addToCart })(ProductPage);

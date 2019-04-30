@@ -1,9 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import Comproduct from './Comproduct';
-import { connect } from 'react-redux';
-import { addToCart } from '../actions/shoppingCartActions';
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Col, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 
 /*
@@ -167,6 +165,14 @@ class Shop extends React.Component {
             </Col>
   
           </Row>
+          <Row>
+            <Col xs="6" sm="4" >
+            </Col>
+            <Col xs="6" sm="4" >
+            </Col>
+            <Col xs="6" sm="4" >
+            </Col>
+          </Row>
 
         </Container>
 
@@ -174,7 +180,6 @@ class Shop extends React.Component {
     );
   }
 }
-
 const textStyle = {
   textAlign: 'center'
 }
@@ -183,8 +188,4 @@ const containerStyle = {
   background: '#bc0505'
 }
 
-const mapStateToProps = state => ({
-  shoppingCart: state.shoppingCart.itemID
-});
-
-export default connect(mapStateToProps, { addToCart })(Shop);
+export default Shop;

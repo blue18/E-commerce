@@ -60,7 +60,6 @@ export default function (state = initialState, action) {
             product.quantity++;
           }
         });
-        
 
         return {
           listOfProducts: allProducts
