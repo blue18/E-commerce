@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import Comproduct from './Comproduct';
+import PageSkipper from './PageSkipper';
 import { Container, Col, Row } from 'reactstrap';
 
 
@@ -165,13 +166,9 @@ class Shop extends React.Component {
             </Col>
   
           </Row>
+          
           <Row>
-            <Col xs="6" sm="4" >
-            </Col>
-            <Col xs="6" sm="4" >
-            </Col>
-            <Col xs="6" sm="4" >
-            </Col>
+            <PageSkipper />
           </Row>
 
         </Container>

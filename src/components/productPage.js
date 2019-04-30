@@ -22,6 +22,7 @@ class ProductPage extends Component {
   }
 
   render() {
+    
     let product = this.props.location.state.product;
 
     return(
@@ -47,12 +48,6 @@ class ProductPage extends Component {
       </div>
     );
   }
-}
-const popup = {
-  background: "red",
-  textAlign: "center",
-  padding: "20px",
-  position: "fixed"
 }
 
 const textStyle = {
