@@ -28,7 +28,7 @@ class ProductPage extends Component {
     return(
       <div>
         <Title title={product.name} /> 
-        <Container>
+        <Container fluid>
           <Row style={textStyle}>
             <Col sm="3"></Col>
             <Col sm="6">

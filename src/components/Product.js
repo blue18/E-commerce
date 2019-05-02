@@ -6,7 +6,7 @@ class Product extends Component {
   render() {
     return(
       <div>
-        <ProductDetail id={this.props.id} title={this.props.name} price={this.props.price} /> 
+        <ProductDetail id={this.props.id} title={this.props.name} /> 
       </div>
     );
   }
