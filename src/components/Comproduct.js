@@ -25,7 +25,7 @@ const imageStyle = {
   width: '100%',
   height: '450px',
   borderRadius: '25px',
-  padding: '5px'
+  padding: '10px'
 }
 
 export default Comproduct;

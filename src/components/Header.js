@@ -22,8 +22,8 @@ const headerStyle = {
 
 const linkStyle = {
   textDecoration: 'none',
-  color: 'red'
-
+  color: 'red',
+  fontSize: "25px"
 }
 
 export default Header;
