@@ -25,13 +25,13 @@ class Cart extends React.Component {
       const aProduct = products.map((product) => {
         return (
           <tr key={parseInt(product.id)}>
-            <td> 
-              <img src={product.image} alt="pic1" width="200" height="100" /> 
+            <td style={blockCenter}> 
+              <img style={imageStyle} src={product.image} alt="pic1" /> 
             </td>
-            <td> {product.name} </td>
-            <td> Description... </td>
-            <td> ${product.price} </td>
-            <td> {product.quantity} </td>
+            <td style={textCenter}> {product.name} </td>
+            <td style={textCenter}> Description... </td>
+            <td style={textCenter}> ${product.price} </td>
+            <td style={textCenter}> {product.quantity} </td>
             <td> <button {...product} onClick={this.deleteFromCart}>Remove</button> </td>
           </tr>
         );
@@ -57,11 +57,11 @@ class Cart extends React.Component {
                   <thead>
                     <tr>
                       <th></th>
-                      <th>Item</th>
-                      <th>Description</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th></th>
+                      <th style={textCenter}>Item</th>
+                      <th style={textCenter}>Description</th>
+                      <th style={textCenter}>Price</th>
+                      <th style={textCenter}>Quantity</th>
+                      <th style={textCenter}></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -87,6 +87,20 @@ class Cart extends React.Component {
         );
       }
     }
+}
+const textCenter = {
+  textAlign: "center"
+}
+
+const blockCenter = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+}
+
+const imageStyle = {
+  height: "200px",
+  width: "200px"
 }
 
 const emptyCart = {
