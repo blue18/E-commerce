@@ -22,10 +22,10 @@ const Comproduct = (props) => {
 }
 
 const imageStyle = {
-  width: '70%',
-  height: '350px',
+  width: '100%',
+  height: '450px',
   borderRadius: '25px',
-  padding: '10px'
+  padding: '5px'
 }
 
 export default Comproduct;

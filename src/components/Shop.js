@@ -13,7 +13,7 @@ const product_one = {
   id: 1,
   name: "blue_sweater",
   price: "3.99",
-  description: "asdf jkl;",
+  description: "beautiful blue sweater",
   quantity: 1,
   image: require('./../assets/50995950_040_b.jpeg')
 };

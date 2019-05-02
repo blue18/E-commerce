@@ -50,8 +50,10 @@ class ProductPage extends Component {
   }
 }
 
+
 const textStyle = {
-  textAlign: "center"
+  textAlign: "center",
+  backgroundColor: "grey"
 }
 
 const mapStateToProps = state => ({
