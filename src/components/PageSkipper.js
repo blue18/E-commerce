@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const PageSkipper = () => {
   return(

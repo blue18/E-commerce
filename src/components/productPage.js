@@ -38,7 +38,13 @@ class ProductPage extends Component {
               <div>{product.quantity}</div>
               <Button color="danger" size="lg" {...product} onClick={this.addToCart} block>Add to Cart</Button>
             </Col>
-            <Col sm="3"></Col>
+            <Col sm="3">
+              <div style={centerButtons}>
+                <Button color="primary">Small</Button>{"   "}
+                <Button color="primary">Medium</Button>{"   "}
+                <Button color="primary">Large</Button>{"   "}
+              </div>
+            </Col>
           </Row>
           <Row>
             <Col>
@@ -49,7 +55,9 @@ class ProductPage extends Component {
     );
   }
 }
-
+const centerButtons = {
+  paddingTop: "15px"
+}
 
 const textStyle = {
   textAlign: "center",
@@ -59,6 +67,5 @@ const textStyle = {
 const mapStateToProps = state => ({
   shoppingCart: state.shoppingCart.itemID
 });
-
 
 export default connect(mapStateToProps, { addToCart })(ProductPage);

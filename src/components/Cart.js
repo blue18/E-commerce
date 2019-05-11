@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteFromCart } from '../actions/shoppingCartActions';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 class Cart extends React.Component {
 
@@ -32,7 +32,7 @@ class Cart extends React.Component {
             <td style={textCenter}> Description... </td>
             <td style={textCenter}> ${product.price} </td>
             <td style={textCenter}> {product.quantity} </td>
-            <td> <button {...product} onClick={this.deleteFromCart}>Remove</button> </td>
+            <td> <Button {...product} size="sm" color="danger" onClick={this.deleteFromCart}>Remove</Button> </td>
           </tr>
         );
       });
@@ -81,6 +81,9 @@ class Cart extends React.Component {
                 <div className={`col`} style={priceCol}>
                   <b>{`Total Price: $${totalPrice.toFixed(2)}`}</b>
                 </div>
+                <div className={`col`} style={buttonStyle}>
+                  <button>Submit</button>
+                </div>
               </div>
             </div>
           </div>
@@ -88,6 +91,13 @@ class Cart extends React.Component {
       }
     }
 }
+
+const buttonStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+}
+
 const textCenter = {
   textAlign: "center"
 }

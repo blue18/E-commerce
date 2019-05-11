@@ -9,6 +9,7 @@ const Header = () => {
         <Link style={linkStyle} to='/shop'> Shop </Link>
         <Link style={linkStyle} to='/about'> About </Link>
         <Link style={linkStyle} to='/cart'> Cart </Link>
+        <Link style={linkStyle} to='/account'> Account </Link>
       </nav>
     </header>
   );
@@ -23,7 +24,8 @@ const headerStyle = {
 const linkStyle = {
   textDecoration: 'none',
   color: 'red',
-  fontSize: "25px"
+  fontSize: "25px",
+  padding: "15px"
 }
 
 export default Header;

@@ -31,12 +31,6 @@ light green: #A3C4BC
   background-color: white;
 }
 
-form {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 h1 {
   text-align: center;
   width: 100%; 

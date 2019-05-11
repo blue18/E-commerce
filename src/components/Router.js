@@ -5,6 +5,7 @@ import Shop from './Shop';
 import About from './About';
 import Cart from './Cart';
 import ProductPage from './ProductPage';
+import Account from './Account';
 
 const Router = (props) => {
 
@@ -23,6 +24,7 @@ const Router = (props) => {
       />
       <Route path='/cart' render={(props) => <Cart {...props} cart={cart} />} />
       <Route path='/productpage' render={(props) => <ProductPage {...props} />} />
+      <Route path='/account' render={(props) => <Account {...props} />} />
     </Switch>
   );
 }

@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import { handleChange } from './actions/promoCodeActions';
 import { withRouter } from 'react-router-dom'
 
-
 class App extends Component {
 
   constructor(props) {
@@ -42,7 +41,6 @@ class App extends Component {
     );
   }
 }
-
 
 const mapStateToProps = state => ({
   promoCode: state.promoCode.value,

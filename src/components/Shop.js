@@ -4,14 +4,13 @@ import Comproduct from './Comproduct';
 import PageSkipper from './PageSkipper';
 import { Container, Col, Row } from 'reactstrap';
 
-
 /*
   add products here for testing purposes 
 */
 
 const product_one = {
   id: 1,
-  name: "blue_sweater",
+  name: "Blue Sweater",
   price: "3.99",
   description: "beautiful blue sweater",
   quantity: 1,
