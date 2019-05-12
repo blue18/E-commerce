@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Title from './Title';
-import AboutForm from './aboutForm';
 
 class About extends Component {
   constructor() {
@@ -16,7 +15,7 @@ class About extends Component {
     .then(data => {
       let users = data.map(user => {
         return(
-          <div key={user.id}>
+          <div style={dataStyle} key={user.id}>
             <p>{user.firstName}</p>
           </div>
         );
@@ -30,11 +29,15 @@ class About extends Component {
     return (
       <div>
         <Title title='About' />
-        <AboutForm />
         <div>{this.state.users}</div>
       </div>
     );
   }
+}
+
+const dataStyle = {
+  display: "flex",
+  justifyContent: "center"
 }
 
 export default About;
