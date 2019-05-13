@@ -10,7 +10,7 @@ class About extends Component {
     };
   }
   componentDidMount() {
-    fetch(process.env.HOST)
+    fetch("http://localhost:5000")
     .then(res => res.json())
     .then(data => {
       let users = data.map(user => {
