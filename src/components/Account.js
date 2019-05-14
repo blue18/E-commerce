@@ -5,7 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 const Account = () => {
   return(
     <Formik
-      initialValues={{ firstname: '', lastname: '', email: '', password: '' }}
+      initialValues={{ firstname: '', lastname: '', email: '', password: '', phonenumber: '' }}
       validate={values => {
         let errors = {};
         if (!values.email) {
@@ -32,6 +32,8 @@ const Account = () => {
           <ErrorMessage name="email" component="div" />
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" />
+          <Field type="tel" name="phonenumber" />
+          <ErrorMessage name="phonenumber" component="div" />
           <button type="submit" disabled={props.isSubmitting}>Submit</button>
         </Form>
       )}
